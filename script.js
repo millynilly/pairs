@@ -1,8 +1,12 @@
 const grid = document.querySelector('.grid')
-const cards = []
+const flipped = document.querySelector('#flipped')
+const matched = document.querySelector('#matched')
 const path = './images/'
+const cards = []
+
 let chosen = []
 let won = []
+let flips
 
 
 function Card(name) {
@@ -32,6 +36,11 @@ cards.push(...cards)
 function createGrid() {
 
     let id = 0
+
+    /*Reset score*/
+    flips = 0
+    flipped.textContent = 0
+    matched.textContent = 0
 
     /*Shuffle the cards*/
     cards.sort( () => .5 - Math.random())
@@ -65,6 +74,8 @@ function flipCard() {
             chosen.pop()
             return
         }
+        flips += 1
+        flipped.textContent = flips
         setTimeout(checkMatch, 800)
     }
 }
@@ -73,7 +84,7 @@ function flipCard() {
 function checkMatch() {
 
     const tiles = document.querySelectorAll('img')
-    const score = document.querySelector('#score')
+    
 
     if (chosen[0].name === chosen[1].name) {
         chosen.forEach( tile => {
@@ -90,11 +101,11 @@ function checkMatch() {
     chosen = []
 
     /*Update score*/
-    score.textContent = won.length
+    matched.textContent = won.length
 
     /*Check for win game*/
     if (won.length === cards.length/2) {
-        score.textContent = 'Win!'
+        matched.textContent = 'Win!'
         won = []
         setTimeout(flipAllCards, 1000)
     }
