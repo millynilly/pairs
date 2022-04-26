@@ -35,4 +35,6 @@ img {
     border-radius: 5px;
 }
 
-img:hover { opacity: 0.5; }
+img:hover { transform: scale(1.05); }
+
+

@@ -27,7 +27,6 @@ cards.push(new Card('starbucks'))
 
 /*Replicate so there are 2 of each*/
 cards.push(...cards)
-console.log(cards)
 
 
 function createGrid() {
@@ -50,6 +49,7 @@ function createGrid() {
 
 
 function flipCard() {
+
     let id = this.getAttribute('data-id')
     let card = {name: cards[id].name, id: id}
 
@@ -60,7 +60,12 @@ function flipCard() {
 
     /*If 2 cards have been flipped, check for a match*/
     if (chosen.length === 2) {
-        setTimeout(checkMatch, 1000)
+        /*Check same card not clicked on twice*/
+        if (chosen[0].id === chosen[1].id) {
+            chosen.pop()
+            return
+        }
+        setTimeout(checkMatch, 800)
     }
 }
 
@@ -105,6 +110,7 @@ function flipAllCards() {
     })
 }
 
+/*Event listener for New Game button*/
 document.querySelector('button').addEventListener('click', () => {
     grid.innerHTML = ''
     createGrid()
