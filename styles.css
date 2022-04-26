@@ -1,0 +1,27 @@
+:root {
+    --sqr: 120px;
+    --gap: 15px;
+}
+
+
+body {
+    font-family: 'Red hat mono', sans-serif;
+    max-width: calc(8 * var(--sqr) + 7 * var(--gap));
+    margin: 0 auto;
+}
+
+h1 { font-size: 1.8rem; }
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+}
+
+img {
+    width: var(--sqr);
+    height: var(--sqr);
+    border-radius: 5px;
+}
+
+img:hover { opacity: 0.5; }
