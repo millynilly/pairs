@@ -12,6 +12,17 @@ body {
 
 h1 { font-size: 1.8rem; }
 
+button {
+    font-family: 'Red hat mono', sans-serif;
+    padding: 8px 16px;
+}
+
+#function {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
