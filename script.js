@@ -77,13 +77,23 @@ function checkMatch() {
     /*Check for win game*/
     if (won.length === cards.length/2) {
         score.textContent = 'Win!'
-        //flipAllCards()
+        setTimeout(flipAllCards, 2000)
 
     //    if (prompt('Play again?') !== null) {
     //        won = []
     //        createBoard()
     //    }
     }
+}
+
+function flipAllCards() {
+    const tiles = document.querySelectorAll('img')
+    let i = 0
+
+    tiles.forEach( tile => {
+        tile.setAttribute('src', cards[i].image)
+        i += 1
+    })
 }
 
 createGrid()
