@@ -14,6 +14,16 @@ function Card(name) {
 /*Create card array*/
 cards.push(new Card('kodak'))
 cards.push(new Card('tesla'))
+cards.push(new Card('ferrari'))
+cards.push(new Card('mini'))
+cards.push(new Card('vw'))
+cards.push(new Card('adobe'))
+cards.push(new Card('spotify'))
+cards.push(new Card('chanel'))
+cards.push(new Card('apple'))
+cards.push(new Card('unsplash'))
+cards.push(new Card('bmw'))
+cards.push(new Card('starbucks'))
 
 /*Replicate so there are 2 of each*/
 cards.push(...cards)
