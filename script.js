@@ -122,10 +122,14 @@ function flipAllCards() {
 }
 
 /*Event listener for New Game button*/
-document.querySelector('button').addEventListener('click', () => {
+document.querySelector('#new-game').addEventListener('click', () => {
     grid.innerHTML = ''
     createGrid()
 })
+
+/*Event listener for Reveal button*/
+document.querySelector('#reveal').addEventListener('click', flipAllCards)
+
 
 
 createGrid()
