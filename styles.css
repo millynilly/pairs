@@ -72,7 +72,6 @@ img:hover { transform: scale(1.05); }
 
 /*Credits*/
 
-
 #credits {
     display: flex;
     flex-wrap: wrap;
@@ -100,8 +99,8 @@ img:hover { transform: scale(1.05); }
 
 
 
-/*Mobile*/
-@media (max-width: 600px) {
+/*Media queries*/
+@media (max-width: 700px) {
     img {
         height: 80px;
         width: 80px;

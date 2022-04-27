@@ -8,7 +8,7 @@ const credits = []
 const names = ['kodak', 'tesla', 'ferrari', 'mini', 'vw', 'adobe',
 'spotify', 'chanel', 'apple', 'unsplash', 'bmw', 'starbucks']
 
-let blank = 'blank-4.jpg'
+let blank = 'blank-13.jpg'
 let chosen = []
 let won = []
 let flips
