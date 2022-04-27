@@ -2,9 +2,14 @@ const grid = document.querySelector('.grid')
 const flipped = document.querySelector('#flipped')
 const matched = document.querySelector('#matched')
 const path = './images/'
+const blank = 'blank-3.jpg'
 const cards = []
+const credits = []
 const names = ['kodak', 'tesla', 'ferrari', 'mini', 'vw', 'adobe',
     'spotify', 'chanel', 'apple', 'unsplash', 'bmw', 'starbucks']
+const authors = ['Adam Birkett', 'Priscilla Du Preez', 'okeykat', '', '', '', '', '', '', 'Javier Esteban', '', '']
+const linksImage = ['GD7VU0daiaQ', 'jRjHSce08Os','jpnAjN5j0Ro', '', '', '', '', '', '', '8At6XBgVyyY', '', '']
+const linksAuthor = ['abirkett', 'priscilladupreez', 'okeykat', '', '', '', '', '', '', 'javiestebaan', '', '']
 
 let chosen = []
 let won = []
@@ -20,8 +25,22 @@ function Card(name) {
 /*Create card array*/
 names.forEach( name => cards.push(new Card(name)))
 
-/*Replicate so there are 2 of each card*/
+/*Replicate cards so there are 2 of each*/
 cards.push(...cards)
+
+/*Credit constructor*/
+function Credit(name, linkA, img, linkI) {
+    this.name = name
+    this.img = img
+    this.linkA = 'https://unsplash.com/@' + linkA
+    this.linkI = 'https://unsplash.com/photos/' + linkI
+}
+
+/*Create image credits array*/
+for (let i = 0; i < names.length; i++) {
+    credits.push(new
+        Credit(authors[i], linksAuthor[i], cards[i].image, linksImage[i]))
+}
 
 
 function createGrid() {
@@ -39,7 +58,7 @@ function createGrid() {
     /*Add the cards face down to the grid*/
     cards.forEach( () => {
         let card = document.createElement('img')
-        card.setAttribute('src', path + 'blank.jpg')
+        card.setAttribute('src', path + blank)
         card.setAttribute('data-id', id)
         card.addEventListener('click', flipCard)
         grid.appendChild(card)
@@ -84,7 +103,7 @@ function checkMatch() {
         won.push(chosen)
     } else {
         chosen.forEach( tile => {
-            tiles[tile.id].setAttribute('src', path + 'blank.jpg')
+            tiles[tile.id].setAttribute('src', path + blank)
         })
     }
 
@@ -96,7 +115,7 @@ function checkMatch() {
 
     /*Check for win game*/
     if (won.length === cards.length/2) {
-        matched.textContent = 'Win!'
+        matched.textContent = 'all of them. Win!'
         won = []
         setTimeout(flipAllCards, 1000)
     }
@@ -114,15 +133,43 @@ function flipAllCards() {
 }
 
 
-/*Event listener for New Game button*/
+/*Event listeners for buttons*/
 document.querySelector('#new-game').addEventListener('click', () => {
     grid.innerHTML = ''
     createGrid()
 })
 
-/*Event listener for Reveal button*/
 document.querySelector('#reveal').addEventListener('click', flipAllCards)
 
 
 
+/*Credits section*/
+function createCredits() {
+
+    credits.forEach( (c) => {
+        let credit = document.createElement('div')
+        let linkI = document.createElement('a')
+        let img = document.createElement('img')
+        let linkT = document.createElement('a')
+
+        img.setAttribute('src', c.img)
+        linkI.setAttribute('href', c.linkI)
+        linkI.setAttribute('target', '_blank')
+        linkI.appendChild(img)
+
+        linkT.setAttribute('href', c.linkA)
+        linkT.setAttribute('target', '_blank')
+        linkT.textContent = c.name
+
+        credit.classList.add('credit')
+        credit.appendChild(linkI)
+        credit.appendChild(linkT)
+        document.querySelector('#credits').appendChild(credit)
+    })
+    
+}
+
+
+
 createGrid()
+createCredits()

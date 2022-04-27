@@ -5,29 +5,38 @@
 
 body {
     font-family: 'Red hat mono', sans-serif;
-    max-width: calc(8 * var(--sqr) + 7 * var(--gap));
-    margin: 0 auto;
+    font-size: 14px;
     padding: 2vw;
 }
 
-h1 { font-size: 1.8rem; }
+h1, h2 { font-family: 'Unica one', 'Red hat mono', sans-serif; }
 
 button {
     font-family: 'Red hat mono', sans-serif;
     padding: 8px 16px;
 }
 
+
+#container {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(8 * var(--sqr) + 7 * var(--gap));
+    margin: 0 auto;
+}
+
 #function {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
     align-items: center;
+    padding: 20px 0;
 }
 
 .grid {
     display: flex;
     flex-wrap: wrap;
     gap: var(--gap);
+    padding-bottom: 80px;
+    border-bottom: 1px solid black;
     justify-content: center;
 }
 
@@ -38,5 +47,37 @@ img {
 }
 
 img:hover { transform: scale(1.05); }
+
+
+
+
+/*Credits*/
+
+
+#credits {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    row-gap: 40px;
+    
+}
+
+.credit {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 75px;
+}
+
+.credit img {
+    width: 75px;
+    height: 80px;
+}
+
+.credit a {
+    text-decoration: none;
+    font-size: .7rem;
+    text-align: center;
+}
 
 

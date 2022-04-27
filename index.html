@@ -9,26 +9,34 @@
     <link rel="stylesheet" href="./styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,300;1,300&family=Unica+One&display=swap" rel="stylesheet">
     <script src="./script.js" defer></script>
 </head>
 
 <body>
-    <div id="header">
-        <h1>Pairs</h1>
-        <p>Match the logos.</p>
-    </div>
+    <div id="container">
+        <div id="header">
+            <h1>Pairs</h1>
+            <p>Match the logos.</p>
+        </div>
 
-    <div id="function">
-        <p>Pairs flipped: <span id="flipped"></span><br>
-           Matched: <span id="matched"></span>
-        </p>
+        <div id="function">
+            <p>Pairs flipped: <span id="flipped"></span><br>
+            Matched: <span id="matched"></span>
+            </p>
+            <div>
+                <button id="reveal">Reveal</button>
+                <button id="new-game">New game</button>
+            </div>
+        </div>
+
+        <div class="grid"></div>
+
         <div>
-            <button id="reveal">Reveal</button>
-            <button id="new-game">New game</button>
+            <h2>Image credits</h2>
+            <div id="credits"></div>
         </div>
     </div>
-    <div class="grid"></div>
 </body>
 
 </html>
