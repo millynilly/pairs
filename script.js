@@ -28,11 +28,11 @@ cards.push(...cards)
 
 
 /*Credit constructor*/
-function Credit(name, linkI, linkA) {
+function Credit(name, linkI, linkA, img='') {
     this.name = name
     this.linkA = 'https://unsplash.com/@' + linkA
     this.linkI = 'https://unsplash.com/photos/' + linkI
-    this.img = ''
+    this.img = img
 }
 
 /*Create image credits array*/
@@ -48,6 +48,9 @@ credits.push(new Credit('Alex Kalinin', '6xtlCkulGXA', 'loaldesign'))
 credits.push(new Credit('Javier Esteban', '8At6XBgVyyY', 'javiestebaan'))
 credits.push(new Credit('Julian Hochgesang', 'wHS333BqBkI', 'julianhochgesang'))
 credits.push(new Credit('Khadeeja Yasser', '3U9L9Chc3is', 'k_yasser'))
+credits.push(new Credit('Annie Spratt', 'g5DkG2ZF7ZY', 'anniespratt', path + 'blank-2.jpg'))
+credits.push(new Credit('Annie Spratt', '8mqOw4DBBSg', 'anniespratt', path + 'blank-3.jpg'))
+credits.push(new Credit('Mona Eendra', 'vC8wj_Kphak', 'monaeendra', path + 'blank-4.jpg'))
 
 /*Add internal image filenames to credits*/
 for (let i = 0; i < names.length; i++) {
