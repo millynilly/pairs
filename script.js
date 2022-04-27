@@ -148,7 +148,7 @@ function flipAllCards() {
 }
 
 
-/*Event listeners for button % radios*/
+/*Event listeners for button & radios*/
 document.querySelector('#new-game').addEventListener('click', () => {
     grid.innerHTML = ''
     createGrid()
