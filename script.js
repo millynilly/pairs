@@ -3,33 +3,24 @@ const flipped = document.querySelector('#flipped')
 const matched = document.querySelector('#matched')
 const path = './images/'
 const cards = []
+const names = ['kodak', 'tesla', 'ferrari', 'mini', 'vw', 'adobe',
+    'spotify', 'chanel', 'apple', 'unsplash', 'bmw', 'starbucks']
 
 let chosen = []
 let won = []
 let flips
 
 
+/*Card constructor*/
 function Card(name) {
     this.name = name
     this.image = path + name + '.jpg'
 }
 
-
 /*Create card array*/
-cards.push(new Card('kodak'))
-cards.push(new Card('tesla'))
-cards.push(new Card('ferrari'))
-cards.push(new Card('mini'))
-cards.push(new Card('vw'))
-cards.push(new Card('adobe'))
-cards.push(new Card('spotify'))
-cards.push(new Card('chanel'))
-cards.push(new Card('apple'))
-cards.push(new Card('unsplash'))
-cards.push(new Card('bmw'))
-cards.push(new Card('starbucks'))
+names.forEach( name => cards.push(new Card(name)))
 
-/*Replicate so there are 2 of each*/
+/*Replicate so there are 2 of each card*/
 cards.push(...cards)
 
 
@@ -69,7 +60,7 @@ function flipCard() {
 
     /*If 2 cards have been flipped, check for a match*/
     if (chosen.length === 2) {
-        /*Check same card not clicked on twice*/
+        /*Check same card not chosen twice*/
         if (chosen[0].id === chosen[1].id) {
             chosen.pop()
             return
@@ -85,7 +76,7 @@ function checkMatch() {
 
     const tiles = document.querySelectorAll('img')
     
-
+    /*If matched set to white image, otherwise set to blank ie. flip back over*/
     if (chosen[0].name === chosen[1].name) {
         chosen.forEach( tile => {
             tiles[tile.id].setAttribute('src', path + 'white.png')
@@ -111,6 +102,7 @@ function checkMatch() {
     }
 }
 
+
 function flipAllCards() {
     const tiles = document.querySelectorAll('img')
     let i = 0
@@ -120,6 +112,7 @@ function flipAllCards() {
         i += 1
     })
 }
+
 
 /*Event listener for New Game button*/
 document.querySelector('#new-game').addEventListener('click', () => {
