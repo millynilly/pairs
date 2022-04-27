@@ -1,16 +1,14 @@
 const grid = document.querySelector('.grid')
 const flipped = document.querySelector('#flipped')
 const matched = document.querySelector('#matched')
+const radios = document.querySelectorAll('input[type="radio"]')
 const path = './images/'
-const blank = 'blank-3.jpg'
 const cards = []
 const credits = []
 const names = ['kodak', 'tesla', 'ferrari', 'mini', 'vw', 'adobe',
-    'spotify', 'chanel', 'apple', 'unsplash', 'bmw', 'starbucks']
-// const authors = ['Adam Birkett', 'Priscilla Du Preez', 'okeykat', 'James Lee', 'Moritz Mentges', '', '', '', '', 'Javier Esteban', '', '']
-// const linksImage = ['GD7VU0daiaQ', 'jRjHSce08Os','jpnAjN5j0Ro', 'msFTpW3g9CA', '5MlBMYDsGBY', '', '', '', '', '8At6XBgVyyY', '', '']
-// const linksAuthor = ['abirkett', 'priscilladupreez', 'okeykat', 'picsbyjameslee', 'mphotographym', '', '', '', '', 'javiestebaan', '', '']
+'spotify', 'chanel', 'apple', 'unsplash', 'bmw', 'starbucks']
 
+let blank = 'blank-4.jpg'
 let chosen = []
 let won = []
 let flips
@@ -27,6 +25,7 @@ names.forEach( name => cards.push(new Card(name)))
 
 /*Replicate cards so there are 2 of each*/
 cards.push(...cards)
+
 
 /*Credit constructor*/
 function Credit(name, linkI, linkA) {
@@ -50,10 +49,9 @@ credits.push(new Credit('Javier Esteban', '8At6XBgVyyY', 'javiestebaan'))
 credits.push(new Credit('Julian Hochgesang', 'wHS333BqBkI', 'julianhochgesang'))
 credits.push(new Credit('Khadeeja Yasser', '3U9L9Chc3is', 'k_yasser'))
 
-
+/*Add internal image filenames to credits*/
 for (let i = 0; i < names.length; i++) {
     credits[i].img = cards[i].image
-    console.log(credits[i])
 }
 
 
@@ -107,7 +105,7 @@ function flipCard() {
 
 function checkMatch() {
 
-    const tiles = document.querySelectorAll('img')
+    const tiles = document.querySelectorAll('.grid img')
     
     /*If matched set to white image, otherwise set to blank ie. flip back over*/
     if (chosen[0].name === chosen[1].name) {
@@ -137,7 +135,7 @@ function checkMatch() {
 
 
 function flipAllCards() {
-    const tiles = document.querySelectorAll('img')
+    const tiles = document.querySelectorAll('.grid img')
     let i = 0
 
     tiles.forEach( tile => {
@@ -147,7 +145,7 @@ function flipAllCards() {
 }
 
 
-/*Event listeners for buttons*/
+/*Event listeners for button % radios*/
 document.querySelector('#new-game').addEventListener('click', () => {
     grid.innerHTML = ''
     createGrid()
@@ -155,9 +153,21 @@ document.querySelector('#new-game').addEventListener('click', () => {
 
 document.querySelector('#reveal').addEventListener('click', flipAllCards)
 
+radios.forEach( radio => radio.addEventListener('change', changeBackOfCard))
 
 
-/*Credits section*/
+function changeBackOfCard() {
+    const tiles = document.querySelectorAll('.grid img')
+    tiles.forEach( tile => {
+        if (tile.getAttribute('src') === path + blank) {
+            tile.setAttribute('src', path + this.value)
+        }
+    })
+    blank = this.value
+}
+
+
+/*Populate credits section*/
 function createCredits() {
 
     credits.forEach( (c) => {

@@ -13,6 +13,23 @@ h1, h2 { font-family: 'Unica one', 'Red hat mono', sans-serif; }
 
 a { text-decoration: none; }
 
+
+/*Radios & buttons*/
+.thumb {
+    width: 40px;
+    height: 40px;
+}
+
+#back-image {
+    display: flex;
+    gap: 50px;
+}
+
+#radios {
+    display: flex;
+    gap: 50px
+}
+
 button {
     font-family: 'Red hat mono', sans-serif;
     padding: 8px 16px;
@@ -59,15 +76,15 @@ img:hover { transform: scale(1.05); }
 #credits {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 12px;
+    justify-content: center;
     row-gap: 40px;
+    column-gap: 12px;
     
 }
 
 .credit {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     width: 75px;
 }
 
@@ -82,3 +99,27 @@ img:hover { transform: scale(1.05); }
 }
 
 
+
+/*Mobile*/
+@media (max-width: 600px) {
+    img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .credit img {
+        height: 50px;
+        width: 50px;
+    }
+
+    #radios {
+        gap: 5px;
+        justify-content: space-between;
+    }
+
+    #back-image {
+        gap: 0px;
+    }
+
+    p { font-size: 12px; }
+}
