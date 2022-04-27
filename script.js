@@ -7,9 +7,9 @@ const cards = []
 const credits = []
 const names = ['kodak', 'tesla', 'ferrari', 'mini', 'vw', 'adobe',
     'spotify', 'chanel', 'apple', 'unsplash', 'bmw', 'starbucks']
-const authors = ['Adam Birkett', 'Priscilla Du Preez', 'okeykat', '', '', '', '', '', '', 'Javier Esteban', '', '']
-const linksImage = ['GD7VU0daiaQ', 'jRjHSce08Os','jpnAjN5j0Ro', '', '', '', '', '', '', '8At6XBgVyyY', '', '']
-const linksAuthor = ['abirkett', 'priscilladupreez', 'okeykat', '', '', '', '', '', '', 'javiestebaan', '', '']
+// const authors = ['Adam Birkett', 'Priscilla Du Preez', 'okeykat', 'James Lee', 'Moritz Mentges', '', '', '', '', 'Javier Esteban', '', '']
+// const linksImage = ['GD7VU0daiaQ', 'jRjHSce08Os','jpnAjN5j0Ro', 'msFTpW3g9CA', '5MlBMYDsGBY', '', '', '', '', '8At6XBgVyyY', '', '']
+// const linksAuthor = ['abirkett', 'priscilladupreez', 'okeykat', 'picsbyjameslee', 'mphotographym', '', '', '', '', 'javiestebaan', '', '']
 
 let chosen = []
 let won = []
@@ -29,17 +29,31 @@ names.forEach( name => cards.push(new Card(name)))
 cards.push(...cards)
 
 /*Credit constructor*/
-function Credit(name, linkA, img, linkI) {
+function Credit(name, linkI, linkA) {
     this.name = name
-    this.img = img
     this.linkA = 'https://unsplash.com/@' + linkA
     this.linkI = 'https://unsplash.com/photos/' + linkI
+    this.img = ''
 }
 
 /*Create image credits array*/
+credits.push(new Credit('Adam Birkett', 'GD7VU0daiaQ', 'abirkett'))
+credits.push(new Credit('Priscilla Du Preez', 'jRjHSce08Os', 'priscilladupreez'))
+credits.push(new Credit('okeykat', 'jpnAjN5j0Ro', 'okeykat'))
+credits.push(new Credit('James Lee', 'msFTpW3g9CA', 'picsbyjameslee'))
+credits.push(new Credit('Moritz Mentges', '5MlBMYDsGBY', 'mphotographym'))
+credits.push(new Credit('Rubaitul Azad', 'gDXPCmktFdY', 'rubaitulazad'))
+credits.push(new Credit('Rubaitul Azad', 'istJD3vU4zI', 'rubaitulazad'))
+credits.push(new Credit('Laura Chouette', '5fWfcnBoNeY', 'laurachouette'))
+credits.push(new Credit('Alex Kalinin', '6xtlCkulGXA', 'loaldesign'))
+credits.push(new Credit('Javier Esteban', '8At6XBgVyyY', 'javiestebaan'))
+credits.push(new Credit('Julian Hochgesang', 'wHS333BqBkI', 'julianhochgesang'))
+credits.push(new Credit('Khadeeja Yasser', '3U9L9Chc3is', 'k_yasser'))
+
+
 for (let i = 0; i < names.length; i++) {
-    credits.push(new
-        Credit(authors[i], linksAuthor[i], cards[i].image, linksImage[i]))
+    credits[i].img = cards[i].image
+    console.log(credits[i])
 }
 
 

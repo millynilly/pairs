@@ -11,6 +11,8 @@ body {
 
 h1, h2 { font-family: 'Unica one', 'Red hat mono', sans-serif; }
 
+a { text-decoration: none; }
+
 button {
     font-family: 'Red hat mono', sans-serif;
     padding: 8px 16px;
@@ -75,7 +77,6 @@ img:hover { transform: scale(1.05); }
 }
 
 .credit a {
-    text-decoration: none;
     font-size: .7rem;
     text-align: center;
 }
