@@ -1,12 +1,14 @@
 const grid = document.querySelector('.grid')
 const flipped = document.querySelector('#flipped')
 const matched = document.querySelector('#matched')
-const radios = document.querySelectorAll('input[type="radio"]')
 const path = './images/'
 const cards = []
 const credits = []
 const names = ['kodak', 'tesla', 'ferrari', 'mini', 'vw', 'adobe',
 'spotify', 'chanel', 'apple', 'unsplash', 'bmw', 'starbucks']
+
+/*No. in image filename: blank-x.jpg*/
+const backImg = [8, 9, 13, 5, 6, 7]
 
 let blank = 'blank-13.jpg'
 let chosen = []
@@ -35,6 +37,7 @@ function Credit(name, linkI, linkA, img='') {
     this.img = img
 }
 
+
 /*Create image credits array*/
 credits.push(new Credit('Adam Birkett', 'GD7VU0daiaQ', 'abirkett'))
 credits.push(new Credit('Priscilla Du Preez', 'jRjHSce08Os', 'priscilladupreez'))
@@ -58,6 +61,36 @@ credits.push(new Credit('Kevin Angelsø', 'OIFMEW_z36Y', 'kevinangelsoe', path +
 /*Add internal image filenames to credits*/
 for (let i = 0; i < names.length; i++) {
     credits[i].img = cards[i].image
+}
+
+
+function createBackImageOptions() {
+
+    /*Create radio buttons*/
+    backImg.forEach( n => {
+        let div  = document.querySelector('#radios')
+        let labl = document.createElement('label')
+        let inpt = document.createElement('input')
+        let img = document.createElement('img')
+
+        inpt.setAttribute('type', 'radio')
+        inpt.setAttribute('name', 'back-img')
+        inpt.setAttribute('value', 'blank-' + n + '.jpg')
+
+        img.setAttribute('class', 'thumb')
+        img.setAttribute('src', path + 'blank-' + n + '.jpg')
+  
+        labl.appendChild(inpt)
+        labl.appendChild(img)
+        div.appendChild(labl)
+    })
+    
+    /*Set initial checked*/
+    document.querySelector(`input[value="${blank}"]`).setAttribute('checked', 'true')
+
+    /*Event listener*/
+    document.querySelectorAll('input[type="radio"]').forEach( r =>
+        r.addEventListener('change', changeBackOfCard))
 }
 
 
@@ -151,7 +184,7 @@ function flipAllCards() {
 }
 
 
-/*Event listeners for button & radios*/
+/*Event listeners for buttons*/
 document.querySelector('#new-game').addEventListener('click', () => {
     grid.innerHTML = ''
     createGrid()
@@ -159,7 +192,6 @@ document.querySelector('#new-game').addEventListener('click', () => {
 
 document.querySelector('#reveal').addEventListener('click', flipAllCards)
 
-radios.forEach( radio => radio.addEventListener('change', changeBackOfCard))
 
 
 function changeBackOfCard() {
@@ -200,6 +232,6 @@ function createCredits() {
 }
 
 
-
+createBackImageOptions()
 createGrid()
 createCredits()

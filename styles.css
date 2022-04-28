@@ -1,6 +1,6 @@
 :root {
-    --sqr: 120px;
-    --gap: 15px;
+    --sqr: 110px;
+    --gap: 18px;
 }
 
 body {
@@ -77,19 +77,19 @@ img:hover { transform: scale(1.05); }
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 40px;
-    column-gap: 12px;
+    column-gap: 15px;
     
 }
 
 .credit {
     display: flex;
     flex-direction: column;
-    width: 75px;
+    width: 70px;
 }
 
 .credit img {
-    width: 75px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 }
 
 .credit a {
@@ -120,6 +120,8 @@ img:hover { transform: scale(1.05); }
     #back-image {
         gap: 0px;
     }
+
+    .grid { gap: 15px; }
 
     p { font-size: 12px; }
 
