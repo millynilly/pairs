@@ -48,9 +48,12 @@ credits.push(new Credit('Alex Kalinin', '6xtlCkulGXA', 'loaldesign'))
 credits.push(new Credit('Javier Esteban', '8At6XBgVyyY', 'javiestebaan'))
 credits.push(new Credit('Julian Hochgesang', 'wHS333BqBkI', 'julianhochgesang'))
 credits.push(new Credit('Khadeeja Yasser', '3U9L9Chc3is', 'k_yasser'))
-credits.push(new Credit('Annie Spratt', 'g5DkG2ZF7ZY', 'anniespratt', path + 'blank-2.jpg'))
-credits.push(new Credit('Annie Spratt', '8mqOw4DBBSg', 'anniespratt', path + 'blank-3.jpg'))
-credits.push(new Credit('Mona Eendra', 'vC8wj_Kphak', 'monaeendra', path + 'blank-4.jpg'))
+credits.push(new Credit('Jorge Ramirez', 'GIb8j6FvYIA', 'jorgedevs', path + 'blank-5.jpg'))
+credits.push(new Credit('Theme Tower', 'zSiBKSpgPVo', 'themetower', path + 'blank-7.jpg'))
+credits.push(new Credit('Thought Catalog', '9aOswReDKPo', 'thoughtcatalog', path + 'blank-8.jpg'))
+credits.push(new Credit('Robin Schreiner', 'sN3ZCrA7adY', 'robin_schreiner', path + 'blank-9.jpg'))
+credits.push(new Credit('Sharon McCutcheon', 'BIURP_seJS8', 'sharonmccutcheon', path + 'blank-6.jpg'))
+credits.push(new Credit('Kevin Angelsø', 'OIFMEW_z36Y', 'kevinangelsoe', path + 'blank-13.jpg'))
 
 /*Add internal image filenames to credits*/
 for (let i = 0; i < names.length; i++) {

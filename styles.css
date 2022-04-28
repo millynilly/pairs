@@ -32,7 +32,7 @@ a { text-decoration: none; }
 
 button {
     font-family: 'Red hat mono', sans-serif;
-    padding: 8px 16px;
+    padding: 8px 12px;
 }
 
 
@@ -100,6 +100,7 @@ img:hover { transform: scale(1.05); }
 
 
 /*Media queries*/
+
 @media (max-width: 700px) {
     img {
         height: 80px;
@@ -121,4 +122,9 @@ img:hover { transform: scale(1.05); }
     }
 
     p { font-size: 12px; }
+
+    button {
+        padding: 6px 9px;
+        font-size: 12px;
+    }
 }
